@@ -80,7 +80,7 @@ function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/*Home Section */}
       <motion.div className="section1" id="home"  initial={{ opacity: 0, y: -50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
@@ -219,28 +219,15 @@ function Home() {
           <div className="contact-info">
             <div className="social-links">
               <h2>Connect With Me</h2>
-              <a 
-                href="https://github.com/Nived11" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="social-link"
-              >
+              <a  href="https://github.com/Nived11"  target="_blank"  rel="noopener noreferrer"  className="social-link" >
                 <FaGithub className="social-icon" />
                 <span>Github</span>
               </a>
-              <a 
-                href="https://linkedin.com/in/yourusername" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="social-link"
-              >
+              <a  href="https://linkedin.com/in/nived11"  target="_blank"  rel="noopener noreferrer"  className="social-link" >
                 <FaLinkedin className="social-icon" />
                 <span>LinkedIn</span>
               </a>
-              <a 
-                href="mailto:your.email@example.com" 
-                className="social-link"
-              >
+              <a  href="mailto:your.nivedsuresh5@gmail.com"  className="social-link" >
                 <FaEnvelope className="social-icon" />
                 <span>Email</span>
               </a>
