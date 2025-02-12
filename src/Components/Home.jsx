@@ -30,7 +30,7 @@ function Home() {
   }, []);
 
   const skills = [
-    "Postman", "MongoDB", "React", "Express", "NodeJS", 
+    "HTML", "CSS", "JavaScript", "NodeJS", "NodeJS", 
     "JavaScript", "HTML", "CSS", "Bootstrap", "Tailwind",
     "Git", "GitHub", "AWS", "Material UI"
   ];
@@ -40,7 +40,7 @@ function Home() {
       {/* Navigation */}
       <nav>
         <div className="logo">
-          <h1>Nived</h1>
+          <h1>NIVED</h1>
         </div>
         <div className={`menu ${isMenuOpen ? 'menu-open' : ''}`}>
           <ul>
