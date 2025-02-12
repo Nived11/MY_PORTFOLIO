@@ -1,6 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Iceland&family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarpanch:wght@400;500;600;700;800;900&display=swap');
 /* General Reset */
 * {
     margin: 0;
@@ -83,6 +86,9 @@ nav::before {
     align-items: center;
     justify-content: space-evenly;
     list-style: none;
+    font-family: "Sarpanch", serif;
+    font-weight: 600;
+    letter-spacing: 1.3px;
 }
 
 .menu li {
@@ -190,6 +196,8 @@ nav::before {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    filter: brightness(.7) contrast(1.1)  drop-shadow(0 10px 30px rgba(0, 223, 130, 0.089))  ;
+   
 }
 
 /* About Section */
@@ -207,15 +215,16 @@ nav::before {
 }
 
 .s2head h1 {
-    font-family: 'Playfair Display', serif;
+   font-family: "Chakra Petch", serif;
     color: white;
     font-size: 2.5rem;
 }
 
 .s2cont {
     color: white;
-    
+    font-family: "Oxanium", serif;
     line-height: 1.8;
+    word-spacing: 1.5px;
     text-align: justify;
     opacity: 0;
     transform: translateY(30px);
@@ -229,6 +238,8 @@ nav::before {
 
 .s2skillhead {
     margin: 40px 0 20px;
+    padding: 10px;
+    font-family: "Chakra Petch", serif;
 }
 
 .s2skillhead h3 {
@@ -247,17 +258,19 @@ nav::before {
     height: 100px;
     width: 100px;
     background-color: rgb(0, 0, 0);
-    border: 2px solid #00df82;
+    border: 1.5px solid #038e54;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 14px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     transition: all 0.3s ease;
     opacity: 0;
     transform: scale(0.9);
+    cursor: pointer;
 }
 
 .skills.visible {
@@ -267,10 +280,16 @@ nav::before {
 
 .skills:hover {
     transform: scale(1.1);
-    background: rgba(0, 223, 130, 0.2);
-    box-shadow: 0 0 20px rgba(0, 223, 130, 0.3);
+    background: rgba(0, 223, 130, 0.048);
+    box-shadow: 0 0 20px rgba(0, 223, 130, 0.288);
 }
-
+.skills img{
+    height: 50%;
+}
+.skills h3{
+    margin-top: 10px;
+    font-size: 14px;
+}
 /* Projects Section */
 .section3 {
     min-height: 100vh;
@@ -282,10 +301,11 @@ nav::before {
 .s3head {
     text-align: center;
     margin-bottom: 40px;
+    
 }
 
 .s3head h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: "Chakra Petch", serif;
     color: white;
     font-size: 2.5rem;
 }
@@ -344,6 +364,7 @@ nav::before {
 }
 
 .projdet {
+    font-family: "Oxanium", serif;
     color: white;
     line-height: 1.6;
 }
@@ -363,7 +384,7 @@ nav::before {
 }
 
 .contact-header h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: "Chakra Petch", serif;
     color: white;
     font-size: 2.5rem;
 }

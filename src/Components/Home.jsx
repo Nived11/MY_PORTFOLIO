@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import profile from "../assets/profile-portfolio.png";
+import profile from "../assets/profilee.png";
+import { motion } from "framer-motion";
+import {SiMongodb, SiExpress, SiReact, SiHtml5, SiCss3, SiJavascript, SiBootstrap, SiTailwindcss, 
+        SiGit, SiGithub, SiNodedotjs, SiAwsamplify,SiMui} from "react-icons/si";
 import ecom from "../assets/ecom.jpg";
 import "./Home.css";
 
+
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   useEffect(() => {
     // Intersection Observer for scroll animations
@@ -30,9 +35,19 @@ function Home() {
   }, []);
 
   const skills = [
-    "HTML", "CSS", "JavaScript", "NodeJS", "NodeJS", 
-    "JavaScript", "HTML", "CSS", "Bootstrap", "Tailwind",
-    "Git", "GitHub", "AWS", "Material UI"
+    { name: "HTML5", icon: <SiHtml5 size={50} color="#E34F26" /> },
+    { name: "CSS", icon: <SiCss3 size={50} color="#1572B6" /> },
+    { name: "JavaScript", icon: <SiJavascript size={50} color="#F7DF1E" /> },
+    { name: "Bootstrap", icon: <SiBootstrap size={50} color="#7952B3" /> },
+    { name: "MongoDB", icon: <SiMongodb size={50} color="#4DB33D" /> },
+    { name: "Express", icon: <SiExpress size={50} color="#fffff" /> },
+    { name: "React", icon: <SiReact size={50} color="#61DAFB" /> },
+    { name: "NodeJS", icon: <SiNodedotjs  size={50} color="#68A063" /> },
+    { name: "Tailwind", icon: <SiTailwindcss size={50} color="#38B2AC" /> },
+    { name: "Material UI", icon: <SiMui size={50} color="#007FFF" /> },
+    { name: "Git", icon: <SiGit size={50} color="#F05032" /> },
+    { name: "GitHub", icon: <SiGithub size={50} color="#fffff" /> },
+    { name: "AWS", icon: <SiAwsamplify size={50} color="#FF9900" /> },
   ];
 
   return (
@@ -66,7 +81,10 @@ function Home() {
       </nav>
 
       {/* Hero Section */}
-      <div className="section1" id="home">
+      <motion.div className="section1" id="home"  initial={{ opacity: 0, y: -50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: false, amount: 0.3 }}>
         <div className="s1-lft">
           <div className="s1-det">
             <h1>Hii,</h1>
@@ -79,7 +97,7 @@ function Home() {
             <img src={profile} alt="Nived - MERN Stack Developer" />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* About Section */}
       <div className="section2" id="about">
@@ -106,11 +124,13 @@ function Home() {
           <h3>SKILLS</h3>
         </div>
         <div className="s2skill">
-          {skills.map((skill, index) => (
+        {skills.map((skill, index) => (
             <div key={index} className="skills">
-              {skill}
+              {skill.icon}
+              <h3>{skill.name}</h3>
             </div>
           ))}
+          
         </div>
       </div>
 
