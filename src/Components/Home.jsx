@@ -24,7 +24,7 @@ function Home() {
         '156D1ZevOJfFfZN3H'
     ).then(
         (result) => {
-          toast.info('mail sent successfully', {
+          toast.success('mail sent successfully', {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
