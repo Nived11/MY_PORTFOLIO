@@ -1,3 +1,5 @@
+import emailjs from 'emailjs-com';
+import { ToastContainer, toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
@@ -12,7 +14,45 @@ import "./Home.css";
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const sendEmail = (e) => {
+    e.preventDefault();
 
+    emailjs.sendForm(
+        'nived11', 
+        'template_z2m5b7f', 
+        e.target, 
+        '156D1ZevOJfFfZN3H'
+    ).then(
+        (result) => {
+          toast.info('mail sent successfully', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+        }, 
+        (error) => {
+          toast.info('something went wrong !', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Slide,
+            });
+        }
+    );
+
+    e.target.reset();
+};
+  
   useEffect(() => {
     // Intersection Observer for scroll animations
     const observer = new IntersectionObserver(
@@ -47,7 +87,7 @@ function Home() {
     { name: "Material UI", icon: <SiMui size={30} color="#007FFF" /> },
     { name: "Git", icon: <SiGit size={40} color="#F05032" /> },
     { name: "GitHub", icon: <SiGithub size={40} color="#fffff" /> },
-    { name: "AWS", icon: <SiAwsamplify size={40} color="#FF9900" /> },
+    { name: "AWS", icon: <SiAwsamplify size={40} color="#FF9900" /> }
   ];
 
   return (
@@ -193,19 +233,19 @@ function Home() {
         </div>
         <div className="contact-container">
           <div className="contact-form-wrapper">
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+            <form className="contact-form" onSubmit={sendEmail}>
               <h2>Contact Me</h2>
               <div className="form-group">
-                <input type="text" placeholder="Your Name" required />
+                <input type="text" name="name" placeholder="Your Name" required />
               </div>
               <div className="form-group">
-                <input type="email" placeholder="Your Email" required />
+                <input type="email" name="email" placeholder="Your Email" required />
               </div>
               <div className="form-group">
-                <input type="text" placeholder="Subject" required />
+                <input type="text" name="subject" placeholder="Subject" required />
               </div>
               <div className="form-group">
-                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <textarea name='message' placeholder="Your Message" rows="5" required></textarea>
               </div>
               <button type="submit" className="submit-btn">
                 Send Message
@@ -224,7 +264,7 @@ function Home() {
                 <FaLinkedin className="social-icon" />
                 <span>LinkedIn</span>
               </a>
-              <a  href="mailto:your.nivedsuresh5@gmail.com"  className="social-link" >
+              <a  href="mailto:your.nived4148@gmail.com"  className="social-link" >
                 <FaEnvelope className="social-icon" />
                 <span>Email</span>
               </a>
@@ -232,6 +272,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
