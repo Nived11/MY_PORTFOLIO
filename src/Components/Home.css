@@ -250,13 +250,13 @@ nav::before {
 .s2skill {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 50px;
     justify-content: center;
 }
 
 .skills {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     background-color: rgb(0, 0, 0);
     border: 1.5px solid #038e54;
     border-radius: 10px;
@@ -282,9 +282,6 @@ nav::before {
     transform: scale(1.1);
     background: rgba(0, 223, 130, 0.048);
     box-shadow: 0 0 20px rgba(0, 223, 130, 0.288);
-}
-.skills img{
-    height: 50%;
 }
 .skills h3{
     margin-top: 10px;
