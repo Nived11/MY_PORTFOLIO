@@ -80,7 +80,7 @@ function Home() {
       //Navigation
       <motion.nav className="navbar" 
         initial={{ y: -100, opacity: 0, scaleY: 0.8 }}
-        animate={{ y: 0, opacity: 1, scaleY: 1 }}
+        animate={{ y:-20, opacity: 1, scaleY: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}>
         <motion.div className="logo"  initial={{ opacity: 0, x: -50, rotate: -10 }}
         animate={{ opacity: 1, x: 0, rotate: 0 }}
