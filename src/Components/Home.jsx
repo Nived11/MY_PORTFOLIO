@@ -13,6 +13,10 @@ import "./Home.css";
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+};
+ 
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -53,26 +57,7 @@ function Home() {
     e.target.reset();
 };
   
-  useEffect(() => {
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    // Observe elements for animation
-    document.querySelectorAll('.s2cont, .projectdiv, .skills').forEach(
-      (element) => observer.observe(element)
-    );
-
-    return () => observer.disconnect();
-  }, []);
+ 
 
   const skills = [
     { name: "HTML5", icon: <SiHtml5 size={30} color="#E34F26" /> },
@@ -92,23 +77,28 @@ function Home() {
 
   return (
     <div className="portfolio">
-      {/* Navigation */}
-      <nav>
-        <div className="logo">
+      //Navigation
+      <motion.nav className="navbar" 
+        initial={{ y: -100, opacity: 0, scaleY: 0.8 }}
+        animate={{ y: 0, opacity: 1, scaleY: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}>
+        <motion.div className="logo"  initial={{ opacity: 0, x: -50, rotate: -10 }}
+        animate={{ opacity: 1, x: 0, rotate: 0 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}>
           <h1>NIVED</h1>
-        </div>
+        </motion.div>
         <div className={`menu ${isMenuOpen ? 'menu-open' : ''}`}>
           <ul>
-            <ScrollLink to="home" smooth={true} duration={500}>
+            <ScrollLink to="home" smooth={true} duration={600} onClick={handleLinkClick}>
               <li>Home</li>
             </ScrollLink>
-            <ScrollLink to="about" smooth={true} duration={500} offset={-80}>
+            <ScrollLink to="about" smooth={true} duration={600} offset={-80} onClick={handleLinkClick}>
               <li>About</li>
             </ScrollLink>
-            <ScrollLink to="project" smooth={true} duration={500} offset={-80}>
+            <ScrollLink to="project" smooth={true} duration={600} offset={-80} onClick={handleLinkClick}>
               <li>Projects</li>
             </ScrollLink>
-            <ScrollLink to="contact" smooth={true} duration={500} offset={-80}>
+            <ScrollLink to="contact" smooth={true} duration={600} offset={-80} onClick={handleLinkClick}>
               <li>Contact</li>
             </ScrollLink>
           </ul>
@@ -118,15 +108,16 @@ function Home() {
             <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
           </svg>
         </div>
-      </nav>
+      </motion.nav>
 
-      {/*Home Section */}
+      // Home Section
+
       <div className="section1" id="home" >
         <div className="s1-lft">
           <div className="s1-det">
-            <h1>Hii,</h1>
-            <h1>I'm Nived</h1>
-            <h3>MERN STACK DEVELOPER</h3>
+            <motion.h1>Hii,</motion.h1>
+            <motion.h1>I'm Nived</motion.h1>
+            <motion.h3>MERN STACK DEVELOPER</motion.h3>
           </div>
         </div>
         <div className="s1-rgt">
@@ -136,12 +127,19 @@ function Home() {
         </div>
       </div>
 
-      {/* About Section */}
+      // About Section
+
       <div className="section2" id="about">
-        <div className="s2head">
+        <motion.div className="s2head" initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: false, amount: 0.3 }}  >
           <h1>About Me</h1>
-        </div>
-        <div className="s2cont">
+        </motion.div>
+        <motion.div className="s2cont" initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: false, amount: 0.3 }} >
           <p>
             Hi! I'm Nived, a passionate MERN Stack Developer with a strong foundation in HTML, CSS, JavaScript, 
             React, Node.js, Express, and MongoDB. I enjoy building dynamic, user-friendly web applications 
@@ -156,30 +154,44 @@ function Home() {
             My goal is to become a full-stack developer and work on innovative projects that have a positive impact. 
             I value collaboration, problem-solving, and strive to improve my skills with every project I take on.
           </p>
-        </div>
+        </motion.div>
         <div className="s2skillhead">
-          <h3>SKILLS</h3>
+          <motion.h3 initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: false, amount: 0.3 }}>SKILLS</motion.h3>
         </div>
         <div className="s2skill">
         {skills.map((skill, index) => (
-            <div key={index} className="skills">
+            <motion.div key={index} className="skills"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false, amount: 0.10 }}>
               {skill.icon}
               <h3>{skill.name}</h3>
-            </div>
+            </motion.div>
           ))}
           
         </div>
       </div>
 
-      {/* Projects Section */}
+      // Projects Section
+
       <div className="section3" id="project">
         <div className="s3head">
           <h1>Projects</h1>
         </div>
-        {/* Project 1 */}
-        <div className="projectdiv">
+
+          // Project 1
+
+        <motion.div className="projectdiv"
+        initial={{ opacity: 0, transform: "translateX(-100px)" }}
+        whileInView={{ opacity: 1, transform: "translateX(0)" }}
+         transition={{ duration: 1 }}
+         viewport={{ once: false, amount: 0.5 }} >
           <div className="s3projimg">
-            <img src={ecom} alt="E-commerce Project" />
+            <img src={ecom} alt="E-commerce Project" loading='lazy'/>
           </div>
           <div className="s3projdetdiv">
             <div className="projname">
@@ -191,9 +203,15 @@ function Home() {
                  design and modern UI/UX principles.</p>
             </div>
           </div>
-        </div>
-        {/* Project 2 */}
-        <div className="projectdiv">
+        </motion.div>
+      
+          // Project 2
+
+        <motion.div className="projectdiv" 
+       initial={{ opacity: 0, transform: "translateX(-100px)" }}
+       whileInView={{ opacity: 1, transform: "translateX(0)" }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false, amount: 0.5 }} >
           <div className="s3projdetdiv">
             <div className="projname">
               <h1>Task Manager</h1>
@@ -205,13 +223,19 @@ function Home() {
             </div>
           </div>
           <div className="s3projimg">
-            <img src={ecom} alt="Task Manager Project" />
+            <img src={ecom} alt="Task Manager Project" loading='lazy' />
           </div>
-        </div>
-        {/* Project 3 */}
-        <div className="projectdiv">
+        </motion.div>
+        
+          // Project 3
+
+        <motion.div className="projectdiv"
+         initial={{ opacity: 0, transform: "translateX(-100px)" }}
+         whileInView={{ opacity: 1, transform: "translateX(0)" }}
+         transition={{ duration: 1 }}
+         viewport={{ once: false, amount: 0.5 }}>
           <div className="s3projimg">
-            <img src={ecom} alt="Blog Platform Project" />
+            <img src={ecom} alt="Blog Platform Project" loading='lazy' />
           </div>
           <div className="s3projdetdiv">
             <div className="projname">
@@ -223,10 +247,11 @@ function Home() {
                  practices and performance optimization.</p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Contact Section */}
+      // Contact Section
+
       <div className="section4" id="contact">
         <div className="contact-header">
           <h1>Get In Touch</h1>

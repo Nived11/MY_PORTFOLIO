@@ -4,56 +4,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sarpanch:wght@400;500;600;700;800;900&display=swap');
-/* General Reset */
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
+body{
+  background-color: black;
 }
 
-/* Navigation */
-nav {
-  height: 80px;
-  width: 100%;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(15, 15, 15, 0.95));
-  backdrop-filter: blur(20px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: -100px;
-  left: 0;
-  z-index: 1000;
-  animation: slideDown 1.2s ease-out forwards;
-  border-bottom: 2px solid rgba(0, 223, 130, 0.3); /* Green Border */
-  box-shadow: 0px 0px 40px rgba(0, 223, 130, 0.25), 0px 0px 20px rgba(0, 223, 130, 0.2) inset; /* Green Glow */
-  overflow: hidden;
-  transition: all 0.4s ease-in-out;
-}
-nav::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -60%;
-  width: 250%;
-  height: 250%;
-  background: radial-gradient(circle, rgba(0, 223, 130, 0.6) 0%, transparent 50%);
-  transform: rotate(0deg);
-  animation: glossyMove 10s infinite linear;
-  opacity: 0.15;
-  z-index: -1;
-}
-
-/* Moving Light Reflection */
-
-
-.logo {
+.navbar {
+    height: 80px;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(15, 15, 15, 0.95));
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(0, 223, 130, 0.3); 
+    box-shadow: 0px 0px 40px rgba(0, 223, 130, 0.25), 0px 0px 20px rgba(0, 223, 130, 0.2) inset; 
+  }
+  
+  .logo {
     height: 100%;
     width: 150px;
     color: white;
@@ -61,25 +38,24 @@ nav::before {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.logo h1 {
-  font-family: "Iceland", serif;
-  font-weight: 600;
+  }
+  
+  .logo h1 {
+    font-family: "Iceland", serif;
+    font-weight: 600;
     font-size: 40px;
     color: #256e50;
-    animation: logoReveal 1.5s ease-out;
-}
-
-.menu {
+  }
+  
+  .menu {
     height: 100%;
     width: 500px;
     margin-right: 50px;
     display: flex;
     align-items: center;
-}
-
-.menu ul {
+  }
+  
+  .menu ul {
     height: 100%;
     width: 100%;
     display: flex;
@@ -89,26 +65,26 @@ nav::before {
     font-family: "Sarpanch", serif;
     font-weight: 600;
     letter-spacing: 1.3px;
-}
-
-.menu li {
+  }
+  
+  .menu li {
     cursor: pointer;
-}
-
-.menu a {
+  }
+  
+  .menu a {
     text-decoration: none;
     color: white;
     font-size: 20px;
     position: relative;
     display: inline-block;
     transition: all 0.3s ease;
-}
-
-.menu a:hover {
+  }
+  
+  .menu a:hover {
     color: #259566;
-}
-
-.menu a::before {
+  }
+  
+  .menu a::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -118,13 +94,12 @@ nav::before {
     left: 0;
     transform: scaleX(0);
     transition: transform 0.3s ease;
-}
-
-.menu a:hover::before {
+  }
+  
+  .menu a:hover::before {
     transform: scaleX(1);
-}
-
-.menuicon {
+  }
+  .menuicon {
     display: none;
     height: 100%;
     width: 50px;
@@ -133,9 +108,7 @@ nav::before {
     position: absolute;
     right: 30px;
     cursor: pointer;
-}
-
-/* Hero Section */
+  }
 .section1 {
     min-height: 100vh;
     width: 100%;
@@ -164,7 +137,7 @@ nav::before {
     margin-bottom: 20px;
     overflow: hidden;
     white-space: nowrap;
-    animation: typeWriter 1s steps(100, end) 0.10s forwards;
+    animation: typeWriter 2s steps(30, end) 0.10s forwards;
 }
 
 .s1-det h3 {
@@ -181,8 +154,6 @@ nav::before {
     justify-content: center;
 }
 
-
-
 .profile {
   height: 350px;
   width: 350px;
@@ -196,11 +167,10 @@ nav::before {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    filter: brightness(.7) contrast(1.1)  drop-shadow(0 10px 30px rgba(0, 223, 130, 0.089))  ;
+    filter: brightness(.8) contrast(1.1)  drop-shadow(0 10px 30px rgba(0, 223, 130, 0.089))  ;
    
 }
 
-/* About Section */
 .section2 {
     min-height: 100vh;
     width: 100%;
@@ -226,9 +196,7 @@ nav::before {
     line-height: 1.8;
     word-spacing: 1.5px;
     text-align: justify;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
+   
 }
 
 .s2cont.visible {
@@ -266,28 +234,19 @@ nav::before {
     justify-content: center;
     color: white;
     font-size: 14px;
-    /* text-transform: uppercase; */
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: scale(0.9);
     cursor: pointer;
 }
 
-.skills.visible {
-    opacity: 1;
-    transform: scale(1);
-}
-
 .skills:hover {
-    transform: scale(1.1);
     background: rgba(0, 223, 130, 0.048);
     box-shadow: 0 0 20px rgba(0, 223, 130, 0.288);
 }
 .skills h3{
     margin-top: 10px;
     font-size: 14px;
+    font-family: "Chakra Petch", serif;
 }
-/* Projects Section */
+
 .section3 {
     min-height: 100vh;
     width: 100%;
@@ -298,7 +257,6 @@ nav::before {
 .s3head {
     text-align: center;
     margin-bottom: 40px;
-    
 }
 
 .s3head h1 {
@@ -308,17 +266,14 @@ nav::before {
 }
 
 .projectdiv {
-    height: 300px;
+    height: 400px;
     width: 90%;
-    margin: 30px auto;
+    margin: 50px auto;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     display: flex;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
 }
 
 .projectdiv.visible {
@@ -327,7 +282,7 @@ nav::before {
 }
 
 .s3projimg {
-    width: 40%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -341,13 +296,13 @@ nav::before {
     transition: transform 0.3s ease;
 }
 
-.projectdiv:hover .s3projimg img {
+.projectdiv:hover .s3projimg img{
     transform: scale(1.05);
 }
 
 .s3projdetdiv {
     width: 60%;
-    padding: 20px;
+    padding: 40px;
 }
 
 .projname {
@@ -366,12 +321,10 @@ nav::before {
     line-height: 1.6;
 }
 
-/* Contact Section */
 .section4 {
     min-height: 100vh;
     width: 100%;
     background-color: rgb(0, 0, 0);
-    /* background: linear-gradient(135deg, rgb(68, 100, 100) 0%, rgb(45, 66, 66) 100%); */
     padding: 80px 5%;
 }
 
@@ -486,17 +439,6 @@ nav::before {
     transform: translateX(10px);
 }
 
-/* Animations */
-@keyframes logoReveal {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px) rotate(-10deg);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0) rotate(0deg);
-    }
-}
 @keyframes profileEnter {
   0% {
       opacity: 0;
@@ -508,8 +450,14 @@ nav::before {
   }
 }
 @keyframes typeWriter {
-    from { width: 0 }
-    to { width: 100% }
+    from { 
+        opacity: 0;
+        width: 0;
+    }
+    to { 
+        opacity: 1;
+        width: 100%;
+    }
 }
 
 @keyframes slideIn {
@@ -532,7 +480,6 @@ nav::before {
     }
 }
 
-/* Mobile Menu Animation */
 @keyframes menuSlideIn {
     from {
         opacity: 0;
@@ -555,7 +502,6 @@ nav::before {
   }
 }
 
-/* Advanced Soft Neon Glow */
 @keyframes pulseGlow {
   0% {
       box-shadow: 0px 0px 20px rgba(0, 223, 130, 0.3);
@@ -574,7 +520,7 @@ nav::before {
       transform: scaleY(0.8);
   }
   60% {
-      top: 10px;
+      top: 20px;
       opacity: 0.7;
       transform: scaleY(1.05);
   }
@@ -601,7 +547,17 @@ nav::before {
   75%  { border-radius: 45% 60% 50% 55% / 65% 40% 55% 50%; }
   100% { border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%; }
 }
-/* Responsive Design */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .contact-container {
         padding: 0 20px;
@@ -625,37 +581,46 @@ nav::before {
 }
 
 @media screen and (max-width: 768px) {
-    .menu {
-        position: fixed;
-        top: 80px;
-        right: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(10px);
-        margin: 0;
-        transition: 0.3s ease;
-    }
-    
-    .menu.menu-open {
-        right: 0;
-    }
-    
-    .menu ul {
-        flex-direction: column;
-        padding: 40px 0;
-    }
-    
-    .menu li {
-        margin: 20px 0;
-    }
-    
-    .menuicon {
-        display: flex;
-    }
+        .menu {
+            position: fixed;
+            top: 80px;
+            right: 100%;  
+            background-color: rgba(0, 0, 0, 0.95);
+            width: 100%;
+            height: fit-content;
+            padding: 20px 0;
+            transition: 0.3s ease-in-out;
+        }
+      
+        .menu.menu-open {
+            right:-50px;
+        }
+      
+        .menuicon {
+          display: flex;
+        }
+      
+        .menu ul {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            padding: 20px 0;
+            
+        }
+      
+        .menu ul li {
+            padding: 15px 0;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            width: 100%;
+        }
     
     .section1 {
         flex-direction: column;
+        text-align: center;
         text-align: center;
     }
     
@@ -687,7 +652,7 @@ nav::before {
     .logo {
         margin-left: 20px;
     }
-    
+
     .s1-det {
         padding: 30px;
     }
@@ -700,4 +665,4 @@ nav::before {
         font-size: 18px;
     }
     
-      }
+}
