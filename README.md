@@ -1,6 +1,3 @@
 
 
-
-
-
-                      click here => https://nived11.netlify.app/
+click here => https://nived11.netlify.app/
