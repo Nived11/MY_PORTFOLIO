@@ -7,7 +7,9 @@ import profile from "../assets/profilee.png";
 import { motion } from "framer-motion";
 import {SiMongodb, SiExpress, SiReact, SiHtml5, SiCss3, SiJavascript, SiBootstrap, SiTailwindcss, 
         SiGit, SiGithub, SiNodedotjs, SiAwsamplify,SiMui} from "react-icons/si";
-import ecom from "../assets/ecom.jpg";
+import ecom from "../assets/qubit.png";
+import blackstoriez from "../assets/blackstoriez.png";
+import talkio from "../assets/talkio.png";
 import "./Home.css";
 
 
@@ -59,21 +61,21 @@ function Home() {
   
  
 
-  const skills = [
-    { name: "HTML5", icon: <SiHtml5 size={30} color="#E34F26" /> },
-    { name: "CSS", icon: <SiCss3 size={30} color="#1572B6" /> },
-    { name: "JavaScript", icon: <SiJavascript size={30} color="#F7DF1E" /> },
-    { name: "Bootstrap", icon: <SiBootstrap size={40} color="#7952B3" /> },
-    { name: "MongoDB", icon: <SiMongodb size={40} color="#4DB33D" /> },
-    { name: "Express", icon: <SiExpress size={40} color="#fffff" /> },
-    { name: "React", icon: <SiReact size={40} color="#61DAFB" /> },
-    { name: "NodeJS", icon: <SiNodedotjs  size={40} color="#68A063" /> },
-    { name: "Tailwind", icon: <SiTailwindcss size={40} color="#38B2AC" /> },
-    { name: "Material UI", icon: <SiMui size={30} color="#007FFF" /> },
-    { name: "Git", icon: <SiGit size={40} color="#F05032" /> },
-    { name: "GitHub", icon: <SiGithub size={40} color="#fffff" /> },
-    { name: "AWS", icon: <SiAwsamplify size={40} color="#FF9900" /> }
-  ];
+const skills = [
+  { name: "HTML5", icon: <SiHtml5 size={30} color="#E34F26" />, link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+  { name: "CSS", icon: <SiCss3 size={30} color="#1572B6" />, link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+  { name: "JavaScript", icon: <SiJavascript size={30} color="#F7DF1E" />, link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+  { name: "Bootstrap", icon: <SiBootstrap size={40} color="#7952B3" />, link: "https://getbootstrap.com/" },
+  { name: "MongoDB", icon: <SiMongodb size={40} color="#4DB33D" />, link: "https://www.mongodb.com/" },
+  { name: "Express", icon: <SiExpress size={40} color="#ffffff" />, link: "https://expressjs.com/" },
+  { name: "React", icon: <SiReact size={40} color="#61DAFB" />, link: "https://react.dev/" },
+  { name: "NodeJS", icon: <SiNodedotjs size={40} color="#68A063" />, link: "https://nodejs.org/" },
+  { name: "Tailwind", icon: <SiTailwindcss size={40} color="#38B2AC" />, link: "https://tailwindcss.com/" },
+  { name: "Material UI", icon: <SiMui size={30} color="#007FFF" />, link: "https://mui.com/" },
+  { name: "Git", icon: <SiGit size={40} color="#F05032" />, link: "https://git-scm.com/" },
+  { name: "GitHub", icon: <SiGithub size={40} color="#ffffff" />, link: "https://github.com/" },
+  { name: "AWS", icon: <SiAwsamplify size={40} color="#FF9900" />, link: "https://aws.amazon.com/amplify/" }
+];
 
   return (
     <div className="portfolio">
@@ -85,7 +87,10 @@ function Home() {
         <motion.div className="logo"  initial={{ opacity: 0, x: -50, rotate: -10 }}
         animate={{ opacity: 1, x: 0, rotate: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}>
-          <h1>NIVED</h1>
+          <ScrollLink to="home" smooth={true} duration={600} onClick={handleLinkClick}>
+            <h1>NIVED</h1>
+          </ScrollLink>
+          
         </motion.div>
         <div className={`menu ${isMenuOpen ? 'menu-open' : ''}`}>
           <ul>
@@ -163,14 +168,17 @@ function Home() {
         </div>
         <div className="s2skill">
         {skills.map((skill, index) => (
-            <motion.div key={index} className="skills"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: false, amount: 0.10 }}>
+            <motion.a key={index} className="skills"
+            href={skill.link}
+            target="_blank"
+            rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: false, amount: 0.10 }}>
               {skill.icon}
               <h3>{skill.name}</h3>
-            </motion.div>
+            </motion.a>
           ))}
           
         </div>
@@ -195,12 +203,13 @@ function Home() {
           </div>
           <div className="s3projdetdiv">
             <div className="projname">
-              <h1>E-commerce</h1>
+              <h1>E-commerce [ QUBIT ]</h1>
             </div>
             <div className="projdet">
               <p>A full-stack e-commerce platform built with the MERN stack. Features include user authentication,
                  product catalog, shopping cart, payment integration, and order management. Implements responsive
-                 design and modern UI/UX principles.</p>
+                 design and modern UI/UX principles.</p><br/>
+                GitHub Repository: <a href="https://github.com/Nived11/E-COMMERCE-QUBIT-" target="_blank" rel="noopener noreferrer">https://github.com/Nived11/E-COMMERCE-QUBIT-</a>
             </div>
           </div>
         </motion.div>
@@ -214,16 +223,16 @@ function Home() {
         viewport={{ once: false, amount: 0.5 }} >
           <div className="s3projdetdiv">
             <div className="projname">
-              <h1>Task Manager</h1>
+              <h1>Talkio – Real-Time Chat Application</h1>
             </div>
             <div className="projdet">
-              <p>A comprehensive task management application built with React and Node.js. Features include 
-                 task creation, categorization, deadline setting, and progress tracking. Implements real-time 
-                 updates and collaborative features.</p>
+              <p>Talkio is a real-time chat application developed using React, Node.js, Express, and Socket.io. It enables users to communicate instantly through a clean and responsive interface. The app supports live messaging, smooth interactions, and provides a seamless chatting experience with efficient message delivery.</p>
+              <br/>
+                GitHub Repository: <a href="https://github.com/Nived11/TalkiO" target="_blank" rel="noopener noreferrer">https://github.com/Nived11/TalkiO</a>
             </div>
           </div>
           <div className="s3projimg">
-            <img src={ecom} alt="Task Manager Project" loading='lazy' />
+            <img src={talkio} alt="Talkio – Real-Time Chat Application" loading='lazy' />
           </div>
         </motion.div>
         
@@ -235,16 +244,15 @@ function Home() {
          transition={{ duration: 1 }}
          viewport={{ once: false, amount: 0.5 }}>
           <div className="s3projimg">
-            <img src={ecom} alt="Blog Platform Project" loading='lazy' />
+            <img  src={blackstoriez} id='blkstr' alt="Black Storieez Project" loading='lazy' />
           </div>
           <div className="s3projdetdiv">
             <div className="projname">
-              <h1>Blog Platform</h1>
+              <h1>Black Storieez – Event Showcase</h1>
             </div>
             <div className="projdet">
-              <p>A modern blogging platform with React frontend and Node.js backend. Features include user 
-                 authentication, rich text editing, comment system, and social sharing. Implements SEO best 
-                 practices and performance optimization.</p>
+              <p>A creative event booking and photo showcase website built using React. Features include categorized reels and image galleries for functions like weddings and photoshoots, with a smooth and immersive UI experience.</p><br />
+         GitHub Repository: <a href="https://github.com/Nived11/Black-Storieez" target="_blank" rel="noopener noreferrer">https://github.com/Nived11/Black-Storieez</a>
             </div>
           </div>
         </motion.div>

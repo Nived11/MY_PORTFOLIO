@@ -45,6 +45,7 @@ body{
     font-weight: 600;
     font-size: 40px;
     color: #256e50;
+    cursor: pointer;
   }
   
   .menu {
@@ -161,8 +162,11 @@ body{
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 223, 130, 0.3);
   animation:fadeInSide 1.5s ease-out,gumWavyBorder 4s infinite ease-in-out;
+  cursor: none;
 }
-
+a{
+    text-decoration: none;
+}
 .profile img {
     height: 100%;
     width: 100%;
@@ -287,6 +291,9 @@ body{
     align-items: center;
     justify-content: center;
     padding: 20px;
+}
+#blkstr{
+    border: 1px solid rgba(255, 255, 255, 0.073);
 }
 
 .s3projimg img {
